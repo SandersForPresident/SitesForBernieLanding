@@ -15,6 +15,11 @@
     setInterval(transition, 10000);
   }
 
+  function updateBannerHeight () {
+    var height = $(window).height() - $('header').height();
+    $('#banner').css('height', height + 'px');
+  }
+
 
   $(document).ready(function () {
     $('#typed-headline span').typed({
@@ -25,7 +30,16 @@
       showCursor: false
     });
 
+    updateBannerHeight();
+    $(window).on('resize', updateBannerHeight);
+
     zoomCarousel($('#content .slides .slide'));
+
+    $('#banner .btn').click(function () {
+      $('html,body').animate({
+        scrollTop: $('#claim').offset().top
+      }, 1000);
+    });
 
     $('#map').vectorMap({
       map: 'usa_en',

@@ -12,7 +12,7 @@ $slides = array(
 
 
 
-<main class="bs-docs-masthead" id="content" role="main">
+<main class="bs-docs-masthead" id="banner" role="main">
   <div class="container">
     <div class="slides">
       <?php foreach ($slides as $slide): ?>
@@ -61,7 +61,7 @@ $slides = array(
         <textarea name="message" class="form-control" ></textarea>
       </div>
 
-      <a href="#" class="btn btn-primary btn-lg">Claim</a>
+      <a href="#" class="btn btn-primary btn-lg">Request Site</a>
 
     </form>
   </div>
