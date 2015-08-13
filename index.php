@@ -49,6 +49,10 @@ $slides = array(
         <input type="text" name="cause" class="form-control" placeholder="What is your focus?" />
       </div>
       <div class="form-group">
+        <label>URL</label><br/>
+        <input type="text" name="url" class="form-control" placeholder="your-subdomain" style="width: 150px; text-align: right; display: inline-block;" />.forberniesanders.com
+      </div>
+      <div class="form-group">
         <label>Contact Name</label>
         <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" />
       </div>
