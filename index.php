@@ -43,23 +43,23 @@ $slides = array(
       <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('site_request'); ?>" />
       <div class="form-group">
         <label>Organization</label>
-        <input type="text" name="organization" class="form-control" placeholder="Who do you represent?"/>
+        <input type="text" name="organization" class="form-control" placeholder="Who do you represent?" required/>
       </div>
       <div class="form-group">
         <label>Cause</label>
-        <input type="text" name="cause" class="form-control" placeholder="What is your focus?" />
+        <input type="text" name="cause" class="form-control" placeholder="What is your focus?" required />
       </div>
       <div class="form-group">
         <label>URL</label><br/>
-        <input type="text" name="url" class="form-control" placeholder="your-subdomain" style="width: 150px; text-align: right; display: inline-block;" />.forberniesanders.com
+        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />.forberniesanders.com
       </div>
       <div class="form-group">
         <label>Contact Name</label>
-        <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" />
+        <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" required />
       </div>
       <div class="form-group">
         <label>Contact Email</label>
-        <input type="text" name="contact_email" class="form-control" placeholder="How we will contact you" />
+        <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you" required />
       </div>
       <div class="form-group">
         <label>Anything else?</label>
