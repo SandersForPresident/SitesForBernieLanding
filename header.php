@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="https://berniesanders.com/wp-content/themes/berniesanders2016/favicon.ico">
     <meta name="theme-color" content="#147FD7"/>
     <link rel="stylesheet" type="text/css" href="http://sandersforpresident.github.io/bootstrap/assets/css/src/docs.css" />
-    
+
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
@@ -24,6 +24,7 @@
         <nav id="bs-navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Get Your Site</a></li>
+            <li><a href="http://voteforbernie.org"> Register to Vote</a></li>
           </ul>
         </nav>
       </div>
