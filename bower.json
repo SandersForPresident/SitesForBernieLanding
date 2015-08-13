@@ -4,5 +4,10 @@
   "authors": [
     "Atticus White <contact@atticuswhite.com>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "git@github.com:SandersForPresident/bootstrap.git#~3.3.5",
+    "typed.js": "*",
+    "jqvmap": "git@github.com:manifestinteractive/jqvmap.git"
+  }
 }
