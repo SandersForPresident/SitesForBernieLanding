@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="https://berniesanders.com/wp-content/themes/berniesanders2016/favicon.ico">
     <meta name="theme-color" content="#147FD7"/>
     <link rel="stylesheet" type="text/css" href="http://sandersforpresident.github.io/bootstrap/assets/css/src/docs.css" />
-    <link rel="stylesheet" type="text/css" href="http://sandersforpresident.github.io/bootstrap/dist/css/bootstrap.css" />
+    
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
