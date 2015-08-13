@@ -78,9 +78,13 @@ $slides = array(
   </div>
 </section>
 
-<section class="container">
+<section class="map container">
   <h2>Help fill the map!</h2>
   <div id="map"></div>
+
+  <p class="psst">
+    Pssst! Do you know what type of primary your state has? <a href="http://voteforbernie.org" target="_blank" title="Learn how to vote for Bernie Sanders">Find out here.</a>
+  </p>
 </section>
 
 <script type="text/javascript">

@@ -1,4 +1,6 @@
 @import '../../bower_components/bootstrap/less/bootstrap.less';
+@import 'variables';
+
 .transform(@transform) {
   -webkit-transform: @transform;
   -moz-transform: @transform;
@@ -65,9 +67,28 @@
 
 }
 
-#map {
-  height: 500px;
-  margin: 40px 0;
+section.map {
+
+  #map {
+    height: 500px;
+    margin: 40px 0;
+
+    @media @tablet {
+      height: 400px;
+    }
+    @media @mobile {
+      height: 300px;
+    }
+  }
+
+  .psst {
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    a {
+      font-style: normal;
+    }
+  }
 }
 
 section {
