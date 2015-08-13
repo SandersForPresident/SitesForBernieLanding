@@ -31,4 +31,36 @@ $slides = array(
   </div>
 </div>
 
+<div style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
+  <div class="container">
+    <h2>Claim your site</h2>
+
+    <form>
+      <div class="form-group">
+        <label>Organization</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Cause</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Contact Name</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Contact Email</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Anything else?</label>
+        <textarea class="form-control" ></textarea>
+      </div>
+
+      <a href="#" class="btn btn-primary btn-lg">Claim</a>
+
+    </form>
+  </div>
+</div>
+
 <?php get_footer(); ?>
