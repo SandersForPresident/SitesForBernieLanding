@@ -6,7 +6,8 @@
 
 $landing_includes = array(
   'lib/init.php',
-  'lib/assets.php'
+  'lib/assets.php',
+  'lib/services/sites.php'
 );
 
 foreach ($landing_includes as $file) {
