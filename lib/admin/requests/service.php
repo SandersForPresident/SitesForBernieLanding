@@ -10,6 +10,7 @@ class RequestService {
   const META_KEY_URL = 'url';
   const META_KEY_EMAIL = 'contact_email';
   const META_KEY_NAME = 'contact_name';
+  const META_KEY_READ = 'read';
 
   public function getRequests() {
     $requests = [];
@@ -29,6 +30,7 @@ class RequestService {
       $request[self::META_KEY_URL] = get_post_meta(get_the_ID(), self::META_KEY_URL, true);
       $request[self::META_KEY_EMAIL] = get_post_meta(get_the_ID(), self::META_KEY_EMAIL, true);
       $request[self::META_KEY_NAME] = get_post_meta(get_the_ID(), self::META_KEY_NAME, true);
+      $request[self::META_KEY_READ] = get_post_meta(get_the_ID(), self::META_KEY_READ, true);
 
       $requests[] = $request;
     }
@@ -51,6 +53,7 @@ class RequestService {
       add_post_meta($postId, self::META_KEY_URL, $request[self::META_KEY_URL]);
       add_post_meta($postId, self::META_KEY_EMAIL, $request[self::META_KEY_EMAIL]);
       add_post_meta($postId, self::META_KEY_NAME, $request[self::META_KEY_NAME]);
+      add_post_meta($postId, self::META_KEY_READ, false);
       return true;
     } else {
       return false;

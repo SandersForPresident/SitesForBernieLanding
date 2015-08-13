@@ -40,7 +40,7 @@ class RequestTable extends WP_List_Table {
   }
 
   public function column_request_organization($item) {
-    if (!true) {
+    if (!$item['read']) {
       $title = "<strong>{$item['organization']}</strong>";
     } else {
       $title = $item['organization'];
