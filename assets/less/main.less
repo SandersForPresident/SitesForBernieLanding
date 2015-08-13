@@ -1,1 +1,53 @@
-@import '../../bower_components/bootstrap/less/bootstrap.less';
+//@import '../../bower_components/bootstrap/less/bootstrap.less';
+
+.bs-docs-masthead {
+  position: relative;
+  // background-image: url(../assets/images/tmp/tiles.png);
+  // background-image: url(https://berniesanders.com/wp-content/uploads/2015/08/080815_Bernie_SeaTac-6456.jpg);
+  background-image: url(https://berniesanders.com/wp-content/uploads/2015/08/0810151927-1.jpg);
+  background-size: cover;
+  padding: 200px 0;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  h2 {
+    color: #fff;
+  }
+  h2, a {
+    position: relative;
+    z-index: 20;
+  }
+  a {
+    margin-top: 40px;
+  }
+
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

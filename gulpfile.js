@@ -22,7 +22,9 @@ gulp.task('js:client', function () {
   .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('default', ['less', 'js:client', 'js:vendor'], function () {
+gulp.task('build', ['less', 'js:client', 'js:vendor']);
+
+gulp.task('default', ['build'], function () {
   gulp.watch('assets/less/**/*.less', ['less']);
   gulp.watch('assets/js/**/*.js', ['js:client']);
 });
