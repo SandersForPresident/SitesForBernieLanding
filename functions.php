@@ -7,7 +7,11 @@
 $landing_includes = array(
   'lib/init.php',
   'lib/assets.php',
-  'lib/services/sites.php'
+  'lib/services/sites.php',
+  'lib/ajax.php',
+  'lib/admin/requests/init.php',
+  'lib/admin/requests/service.php',
+  'lib/admin/requests/table.php'
 );
 
 foreach ($landing_includes as $file) {

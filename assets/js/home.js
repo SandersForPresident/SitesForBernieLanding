@@ -78,5 +78,26 @@
         scrollTop: $('#claim').offset().top
       }, 1000);
     });
+
+    $('#claim-form').submit(function () {
+      var fields = {
+        organization: $('#claim-form input[name=organization]').val(),
+        cause: $('#claim-form input[name=cause]').val(),
+        url: $('#claim-form input[name=url]').val(),
+        contact_name: $('#claim-form input[name=contact_name]').val(),
+        contact_email: $('#claim-form input[name=contact_email]').val(),
+        message: $('#claim-form textarea[name=message]').val(),
+      }
+      $.post('/wp-admin/admin-ajax.php', {
+        action: 'siteRequest',
+        nonce: $('#claim-form input[name=nonce]').val(),
+        site_request: fields
+      }, function () {
+        $('#claim-form').slideUp();
+        $('#claim-form-success .highlight').text(fields.url + '.forberniesanders.com');
+        $('#claim-form-success').show();
+      });
+      return false;
+    });
   });
 })(jQuery);
