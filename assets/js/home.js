@@ -52,6 +52,7 @@
           });
           $('#claim-form input[name=organization]').val('State of ' + region);
           $('#claim-form input[name=cause]').val('Local Communities');
+          $('#claim-form input[name=url]').val(code);
         }
       }
     });

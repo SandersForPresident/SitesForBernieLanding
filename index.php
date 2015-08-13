@@ -54,7 +54,8 @@ $slides = array(
       </div>
       <div class="form-group">
         <label>URL</label><br/>
-        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />.forberniesanders.com
+        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />
+        <span class="url">.forberniesanders.com</span>
       </div>
       <div class="form-group">
         <label>Contact Name</label>

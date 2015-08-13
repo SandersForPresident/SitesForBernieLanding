@@ -6,7 +6,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "git@github.com:SandersForPresident/bootstrap.git#~3.3.5",
+    "bootstrap": "git@github.com:SandersForPresident/bootstrap.git#master",
     "typed.js": "*",
     "jqvmap": "git@github.com:manifestinteractive/jqvmap.git"
   }
