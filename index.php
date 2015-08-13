@@ -2,8 +2,12 @@
 get_header();
 $slides = array(
   'https://berniesanders.com/wp-content/uploads/2015/08/080815_Bernie_SeaTac-6456.jpg',
-  'https://berniesanders.com/wp-content/uploads/2015/08/0810151927-1.jpg'
-)
+  'https://scontent-ord1-1.xx.fbcdn.net/hphotos-xfp1/t31.0-8/11807565_881506715237667_18143513052069287_o.jpg',
+  'https://berniesanders.com/wp-content/uploads/2015/08/0810151927-1.jpg',
+  'https://scontent-ord1-1.xx.fbcdn.net/hphotos-xpt1/t31.0-8/11872020_881506155237723_9096113027227239162_o.jpg',
+  'https://scontent-ord1-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/11856275_880165818705090_8220844970488020042_o.jpg',
+  'https://scontent-ord1-1.xx.fbcdn.net/hphotos-xap1/t31.0-8/11823075_880716421983363_4308904511561947777_o.jpg'
+);
 ?>
 
 
@@ -38,19 +42,19 @@ $slides = array(
     <form>
       <div class="form-group">
         <label>Organization</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" placeholder="Who do you represent?"/>
       </div>
       <div class="form-group">
         <label>Cause</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" placeholder="What is your focus?" />
       </div>
       <div class="form-group">
         <label>Contact Name</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" placeholder="What is your name?" />
       </div>
       <div class="form-group">
         <label>Contact Email</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" placeholder="How we will contact you" />
       </div>
       <div class="form-group">
         <label>Anything else?</label>
@@ -61,6 +65,12 @@ $slides = array(
 
     </form>
   </div>
+</div>
+
+<div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+  <h2>Help fill the map!</h2>
+  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/map.png" />
+
 </div>
 
 <?php get_footer(); ?>
