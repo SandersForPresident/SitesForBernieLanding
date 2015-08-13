@@ -38,7 +38,7 @@ $slides = array(
   </div>
 </div>
 
-<div id="claim" style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
+<section id="claim">
   <div class="container">
     <h2>Claim your site</h2>
 
@@ -76,12 +76,12 @@ $slides = array(
       Your request has been received. We'll be in touch regarding<br/><span class="highlight"></span>
     </p>
   </div>
-</div>
+</section>
 
-<div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+<section class="container">
   <h2>Help fill the map!</h2>
   <div id="map"></div>
-</div>
+</section>
 
 <script type="text/javascript">
 window.sites = <?php echo json_encode($sites); ?>;

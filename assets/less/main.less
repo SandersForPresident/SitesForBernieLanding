@@ -57,9 +57,15 @@
 
 #map {
   height: 500px;
+  margin: 40px 0;
+}
+
+section {
+  padding: 60px 0;
 }
 
 #claim {
+  background-color: @gray-lighter;
   #claim-form-success {
     display: none;
 
@@ -81,4 +87,23 @@
 
 footer {
   background-color: @gray-lighter;
+  padding: 40px 0;
+  color: @gray-light;
+
+  .donated-by {
+    text-align: center;
+    > div {
+      padding: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid @gray-light;
+      display: inline-block;
+    }
+  }
+
+  .affiliation {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+  }
 }
