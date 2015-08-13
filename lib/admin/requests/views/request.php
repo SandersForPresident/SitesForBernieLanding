@@ -1,7 +1,9 @@
 <?php
-use SandersForPresident\Wordpress\Admin\Requests\RequestService;
+use SandersForPresidentLanding\Wordpress\Admin\Requests\RequestService;
 $service = new RequestService();
 $request = $service->getRequest($_REQUEST['post']);
+
+$service->markAsRead($request['id']);
 ?>
 
 <div class="wrap">
@@ -12,9 +14,10 @@ $request = $service->getRequest($_REQUEST['post']);
 
       <div id="post-body-content">
         <div class="postbox">
-          <h3 class="hndle ">The Title</h3>
+          <h3 class="hndle">Organization: <?php echo $request['organization']; ?></h3>
+          <h3 class="hndle">URL: <?php echo $request['url']; ?>.forberniesanders.com</h3>
           <div class="inside">
-            The Content
+            <?php echo apply_filters('the_content', $request['message']); ?>
           </div>
         </div>
       </div>
@@ -28,15 +31,15 @@ $request = $service->getRequest($_REQUEST['post']);
               <div id="misc-publishing-actions">
                 <div class="misc-pub-section">
                   <label style="font-weight:bold;">From:</label>
-                  <span>NAME</span>
+                  <span><?php echo $request['contact_name']; ?></span>
                 </div>
                 <div class="misc-pub-section">
                   <label style="font-weight:bold;">Email:</label>
-                  <span>EMAIL</span>
+                  <span><?php echo $request['contact_email']; ?></span>
                 </div>
                 <div class="misc-pub-section">
                   <label style="font-weight:bold;">Date:</label>
-                  <span>DATE</span>
+                  <span><?php echo $request['date']; ?></span>
                 </div>
               </div>
 

@@ -36,7 +36,7 @@ class RequestTable extends WP_List_Table {
   }
 
   public function column_cb($item) {
-    return "<input type=\"checkbox\" name=\"request[]\" value=\"{$item->id}\" />";
+    return "<input type=\"checkbox\" name=\"request[]\" value=\"{$item['id']}\" />";
   }
 
   public function column_request_organization($item) {
@@ -46,7 +46,7 @@ class RequestTable extends WP_List_Table {
       $title = $item['organization'];
     }
     $actions = array(
-      'view' => "<a href=\"?page={$_REQUEST['page']}&action=view&post=XYZ\">View</a>"
+      'view' => "<a href=\"?page={$_REQUEST['page']}&action=view&post={$item['id']}\">View</a>"
     );
     return $title . $this->row_actions($actions, false);
   }

@@ -1,6 +1,7 @@
 <?php
 namespace SandersForPresidentLanding\Wordpress\Admin\Requests;
 use WP_Query;
+use WP_Post;
 
 class RequestService {
   const POST_TYPE = 'request';
@@ -38,6 +39,20 @@ class RequestService {
   }
 
   public function getRequest($id) {
+    $post = get_post($id);
+    if ($post instanceof WP_Post) {
+      $request = array ();
+      $request['id'] = $post->ID;
+      $request['date'] = get_the_time('F d, Y h:ia', $post->ID);
+      $request[self::POST_TITLE_KEY] = $post->post_title;
+      $request[self::POST_CONTENT_KEY] = $post->post_content;
+      $request[self::META_KEY_CAUSE] = get_post_meta($post->ID, self::META_KEY_CAUSE, true);
+      $request[self::META_KEY_URL] = get_post_meta($post->ID, self::META_KEY_URL, true);
+      $request[self::META_KEY_EMAIL] = get_post_meta($post->ID, self::META_KEY_EMAIL, true);
+      $request[self::META_KEY_NAME] = get_post_meta($post->ID, self::META_KEY_NAME, true);
+      $request[self::META_KEY_READ] = get_post_meta($post->ID, self::META_KEY_READ, true);
+      return $request;
+    }
     return null;
   }
 
@@ -58,5 +73,9 @@ class RequestService {
     } else {
       return false;
     }
+  }
+
+  public function markAsRead($id) {
+    update_post_meta($id, self::META_KEY_READ, true);
   }
 }
