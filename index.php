@@ -35,30 +35,30 @@ $slides = array(
   </div>
 </div>
 
-<div style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
+<div id="claim" style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
   <div class="container">
     <h2>Claim your site</h2>
 
-    <form>
+    <form id="claim-form">
       <div class="form-group">
         <label>Organization</label>
-        <input type="text" class="form-control" placeholder="Who do you represent?"/>
+        <input type="text" name="organization" class="form-control" placeholder="Who do you represent?"/>
       </div>
       <div class="form-group">
         <label>Cause</label>
-        <input type="text" class="form-control" placeholder="What is your focus?" />
+        <input type="text" name="cause" class="form-control" placeholder="What is your focus?" />
       </div>
       <div class="form-group">
         <label>Contact Name</label>
-        <input type="text" class="form-control" placeholder="What is your name?" />
+        <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" />
       </div>
       <div class="form-group">
         <label>Contact Email</label>
-        <input type="text" class="form-control" placeholder="How we will contact you" />
+        <input type="text" name="contact_email" class="form-control" placeholder="How we will contact you" />
       </div>
       <div class="form-group">
         <label>Anything else?</label>
-        <textarea class="form-control" ></textarea>
+        <textarea name="message" class="form-control" ></textarea>
       </div>
 
       <a href="#" class="btn btn-primary btn-lg">Claim</a>
@@ -69,8 +69,7 @@ $slides = array(
 
 <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
   <h2>Help fill the map!</h2>
-  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/map.png" />
-
+  <div id="map"></div>
 </div>
 
 <?php get_footer(); ?>

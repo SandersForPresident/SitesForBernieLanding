@@ -10,7 +10,9 @@ gulp.task('less', function () {
 
 gulp.task('js:vendor', function () {
   gulp.src([
-    'bower_components/typed.js/dist/typed.min.js'
+    'bower_components/typed.js/dist/typed.min.js',
+    'bower_components/jqvmap/jqvmap/jquery.vmap.js',
+    'bower_components/jqvmap/jqvmap/maps/jquery.vmap.usa.js'
   ])
   .pipe(concat('vendor.js'))
   .pipe(gulp.dest('dist/'));

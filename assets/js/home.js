@@ -26,5 +26,24 @@
     });
 
     zoomCarousel($('#content .slides .slide'));
+
+    $('#map').vectorMap({
+      map: 'usa_en',
+      colors: {
+        nc: '#147fd7',
+        wa: '#147fd7',
+        wi: '#147fd7'
+      },
+      enableZoom: false,
+      backgroundColor: null,
+      // hoverColor: '#147fd7',
+      onRegionClick: function (element, code, region) {
+        $('html, body').animate({
+          scrollTop: $('#claim').offset().top
+        });
+        $('#claim-form input[name=organization]').val('State of ' + region);
+        $('#claim-form input[name=cause]').val('Local Communities');
+      }
+    });
   });
 })(jQuery);
