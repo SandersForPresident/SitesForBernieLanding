@@ -1,5 +1,7 @@
 <?php
 get_header();
+use SandersForPresidentLanding\Wordpress\Services\SiteService;
+$siteService = new SiteService();
 $slides = array(
   'https://berniesanders.com/wp-content/uploads/2015/08/080815_Bernie_SeaTac-6456.jpg',
   'https://scontent-ord1-1.xx.fbcdn.net/hphotos-xfp1/t31.0-8/11807565_881506715237667_18143513052069287_o.jpg',
@@ -34,6 +36,9 @@ $slides = array(
     </p>
   </div>
 </div>
+<pre>
+  <?php print_r($siteService->getSites()); ?>
+</pre>
 
 <div id="claim" style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
   <div class="container">
