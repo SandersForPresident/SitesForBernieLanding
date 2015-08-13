@@ -22,12 +22,14 @@ class RequestService {
       $query->the_post();
       $request = array ();
       $request['id'] = get_the_ID();
+      $request['date'] = get_the_time('F d, Y h:ia', get_the_ID());
       $request[self::POST_TITLE_KEY] = get_the_title();
       $request[self::POST_CONTENT_KEY] = get_the_content();
       $request[self::META_KEY_CAUSE] = get_post_meta(get_the_ID(), self::META_KEY_CAUSE, true);
       $request[self::META_KEY_URL] = get_post_meta(get_the_ID(), self::META_KEY_URL, true);
       $request[self::META_KEY_EMAIL] = get_post_meta(get_the_ID(), self::META_KEY_EMAIL, true);
       $request[self::META_KEY_NAME] = get_post_meta(get_the_ID(), self::META_KEY_NAME, true);
+
       $requests[] = $request;
     }
     return $requests;

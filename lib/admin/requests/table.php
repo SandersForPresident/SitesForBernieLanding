@@ -39,11 +39,11 @@ class RequestTable extends WP_List_Table {
     return "<input type=\"checkbox\" name=\"request[]\" value=\"{$item->id}\" />";
   }
 
-  public function column_request_title($item) {
+  public function column_request_organization($item) {
     if (!true) {
-      $title = "<strong>EXAMPLE</strong>";
+      $title = "<strong>{$item['organization']}</strong>";
     } else {
-      $title = "EXAMPLE"; //$item->title;
+      $title = $item['organization'];
     }
     $actions = array(
       'view' => "<a href=\"?page={$_REQUEST['page']}&action=view&post=XYZ\">View</a>"
@@ -51,24 +51,18 @@ class RequestTable extends WP_List_Table {
     return $title . $this->row_actions($actions, false);
   }
 
-  public function column_request_organization($item) {
-    return 'Organization Name';
-  }
-
   public function column_request_organizer($item) {
-    return "Hello world";
-    $name = $item->from['name'];
-    $email = "<a href=\"mailto:{$item->from['email']}\">{$item->from['email']}</a>";
+    $name = $item['contact_name'];
+    $email = "<a href=\"mailto:{$item['contact_email']}\">{$item['contact_email']}</a>";
     return $name . "<br/>" . $email;
   }
 
-  public function column_request_url() {
-    return 'foobar.forberniesanders.com';
+  public function column_request_url($item) {
+    return $item['url'] . '.forberniesanders.com';
   }
 
   public function column_request_date($item) {
-    return "Now";
-    return $item->getDate();
+    return $item['date'];
   }
 
   public function get_sortable_columns() {
