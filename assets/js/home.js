@@ -59,5 +59,23 @@
         $('#claim-form input[name=cause]').val('Local Communities');
       }
     });
+
+    $('#claim-form').submit(function () {
+      var fields = {
+        organization: $('#claim-form input[name=organization]').val(),
+        cause: $('#claim-form input[name=cause]').val(),
+        url: $('#claim-form input[name=url]').val(),
+        contact_name: $('#claim-form input[name=contact_name]').val(),
+        contact_email: $('#claim-form input[name=contact_email]').val(),
+        message: $('#claim-form textarea[name=message]').val(),
+      }
+      $.post('/wp-admin/admin-ajax.php', {
+        action: 'siteRequest',
+        nonce: $('#claim-form input[name=nonce]').val(),
+        site_request: fields
+      });
+      console.log('fields', fields);
+      return false;
+    });
   });
 })(jQuery);

@@ -40,6 +40,7 @@ $slides = array(
     <h2>Claim your site</h2>
 
     <form id="claim-form">
+      <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('site_request'); ?>" />
       <div class="form-group">
         <label>Organization</label>
         <input type="text" name="organization" class="form-control" placeholder="Who do you represent?"/>
@@ -65,7 +66,7 @@ $slides = array(
         <textarea name="message" class="form-control" ></textarea>
       </div>
 
-      <a href="#" class="btn btn-primary btn-lg">Request Site</a>
+      <button class="btn btn-primary btn-lg">Request Site</button>
 
     </form>
   </div>

@@ -1,5 +1,6 @@
 <?php
 namespace SandersForPresidentLanding\Wordpress\Admin\Requests;
+use WP_Query;
 
 class RequestService {
   const POST_TYPE = 'request';
@@ -9,23 +10,30 @@ class RequestService {
   const META_KEY_URL = 'url';
   const META_KEY_EMAIL = 'contact_email';
   const META_KEY_NAME = 'contact_name';
-  private $mocks = array();
-
-  public function __construct() {
-    $this->mocks[0] = array('id' => 1);
-    $this->mocks[1] = array('id' => 2);
-  }
 
   public function getRequests() {
-    return $this->mocks;
+    $requests = [];
+    $args = array(
+      'post_type' => self::POST_TYPE
+    );
+    $query = new WP_Query($args);
+
+    while ($query->have_posts()) {
+      $query->the_post();
+      $request = array ();
+      $request['id'] = get_the_ID();
+      $request[self::POST_TITLE_KEY] = get_the_title();
+      $request[self::POST_CONTENT_KEY] = get_the_content();
+      $request[self::META_KEY_CAUSE] = get_post_meta(get_the_ID(), self::META_KEY_CAUSE, true);
+      $request[self::META_KEY_URL] = get_post_meta(get_the_ID(), self::META_KEY_URL, true);
+      $request[self::META_KEY_EMAIL] = get_post_meta(get_the_ID(), self::META_KEY_EMAIL, true);
+      $request[self::META_KEY_NAME] = get_post_meta(get_the_ID(), self::META_KEY_NAME, true);
+      $requests[] = $request;
+    }
+    return $requests;
   }
 
   public function getRequest($id) {
-    foreach ($this->mocks as $mock) {
-      if ($mock->id == $id) {
-        return $mock;
-      }
-    }
     return null;
   }
 
