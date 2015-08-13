@@ -73,6 +73,10 @@
         action: 'siteRequest',
         nonce: $('#claim-form input[name=nonce]').val(),
         site_request: fields
+      }, function () {
+        $('#claim-form').slideUp();
+        $('#claim-form-success .highlight').text(fields.url + '.forberniesanders.com');
+        $('#claim-form-success').show();
       });
       console.log('fields', fields);
       return false;

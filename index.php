@@ -67,8 +67,10 @@ $slides = array(
       </div>
 
       <button class="btn btn-primary btn-lg">Request Site</button>
-
     </form>
+    <p id="claim-form-success" class="lead">
+      Your request has been received. We'll be in touch regarding<br/><span class="highlight"></span>
+    </p>
   </div>
 </div>
 
