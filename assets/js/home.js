@@ -71,7 +71,7 @@
     updateBannerHeight();
     $(window).on('resize', updateBannerHeight);
 
-    zoomCarousel($('#content .slides .slide'));
+    zoomCarousel($('#banner .slides .slide'));
     buildMap();
 
     $('#banner .btn').click(function () {
