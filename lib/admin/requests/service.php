@@ -14,7 +14,7 @@ class RequestService {
   const META_KEY_READ = 'read';
 
   public function getRequests() {
-    $requests = [];
+    $requests = array();
     $args = array(
       'post_type' => self::POST_TYPE
     );
