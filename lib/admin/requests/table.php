@@ -51,6 +51,10 @@ class RequestTable extends WP_List_Table {
     return $title . $this->row_actions($actions, false);
   }
 
+  public function column_request_organization($item) {
+    return 'Organization Name';
+  }
+
   public function column_request_organizer($item) {
     return "Hello world";
     $name = $item->from['name'];
@@ -80,10 +84,8 @@ class RequestTable extends WP_List_Table {
   }
 
   public function prepare_items() {
-    $this->items = array(1,3,4);
-    return;
+    $this->items = $this->service->getRequests();
     $this->_column_headers = array($this->get_columns(), array(), array());
-    $this->items = $this->service->getMessages();
     $this->set_pagination_args(array(
       'total_items' => count($this->items),
       'per_page' => 10
