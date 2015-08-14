@@ -1,4 +1,13 @@
-//@import '../../bower_components/bootstrap/less/bootstrap.less';
+@import '../../bower_components/bootstrap/less/bootstrap.less';
+@import 'variables';
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform; /* note that you have @trasnform here */
+  -o-transform: @transform;
+  transform: @transform;
+}
 
 .bs-docs-masthead {
   position: relative;
@@ -19,13 +28,16 @@
     z-index: 20;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    .transform(translate(-50%, -50%));
 
     h1, h2 {
       color: #fff;
     }
     h2, a {
       margin-top: 30px;
+    }
+    #typed-headline {
+      .hidden-xs();
     }
   }
   .slides {
@@ -48,18 +60,43 @@
       transform-origin: 50% 75%;
       &.active {
         z-index: 6;
-        transform: scale(2);
+        .transform(scale(2));
       }
     }
   }
 
 }
 
-#map {
-  height: 500px;
+section.map {
+
+  #map {
+    height: 500px;
+    margin: 40px 0;
+
+    @media @tablet {
+      height: 400px;
+    }
+    @media @mobile {
+      height: 300px;
+    }
+  }
+
+  .psst {
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    a {
+      font-style: normal;
+    }
+  }
+}
+
+section {
+  padding: 60px 0;
 }
 
 #claim {
+  background-color: @gray-lighter;
   #claim-form-success {
     display: none;
 
@@ -67,26 +104,37 @@
       display: inline-block;
     }
   }
+
+  #claim-form {
+    .url {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 4px;
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
 }
 
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+footer {
+  background-color: @gray-lighter;
+  padding: 40px 0;
+  color: @gray-light;
+
+  .donated-by {
+    text-align: center;
+    > div {
+      padding: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid @gray-light;
+      display: inline-block;
+    }
+  }
+
+  .affiliation {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+  }
 }

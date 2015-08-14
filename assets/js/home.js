@@ -52,6 +52,7 @@
           });
           $('#claim-form input[name=organization]').val('State of ' + region);
           $('#claim-form input[name=cause]').val('Local Communities');
+          $('#claim-form input[name=url]').val(code);
         }
       }
     });
@@ -70,7 +71,7 @@
     updateBannerHeight();
     $(window).on('resize', updateBannerHeight);
 
-    zoomCarousel($('#content .slides .slide'));
+    zoomCarousel($('#banner .slides .slide'));
     buildMap();
 
     $('#banner .btn').click(function () {

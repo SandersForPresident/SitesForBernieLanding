@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic|Merriweather:900,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic|Merriweather:900,700,700italic|Lato:400,900italic,900,700italic,700,400italic,300italic,300,100italic,100|Lora:400,700italic,700,400italic' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="https://berniesanders.com/wp-content/themes/berniesanders2016/favicon.ico">
     <meta name="theme-color" content="#147FD7"/>
     <link rel="stylesheet" type="text/css" href="http://sandersforpresident.github.io/bootstrap/assets/css/src/docs.css" />
-    <link rel="stylesheet" type="text/css" href="http://sandersforpresident.github.io/bootstrap/dist/css/bootstrap.css" />
+
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
@@ -24,6 +24,7 @@
         <nav id="bs-navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Get Your Site</a></li>
+            <li><a href="http://voteforbernie.org"> Register to Vote</a></li>
           </ul>
         </nav>
       </div>

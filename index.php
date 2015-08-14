@@ -38,7 +38,7 @@ $slides = array(
   </div>
 </div>
 
-<div id="claim" style="background-color: #eff3f7; padding-top: 60px; padding-bottom: 60px;">
+<section id="claim">
   <div class="container">
     <h2>Claim your site</h2>
 
@@ -54,7 +54,8 @@ $slides = array(
       </div>
       <div class="form-group">
         <label>URL</label><br/>
-        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />.forberniesanders.com
+        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />
+        <span class="url">.forberniesanders.com</span>
       </div>
       <div class="form-group">
         <label>Contact Name</label>
@@ -75,12 +76,16 @@ $slides = array(
       Your request has been received. We'll be in touch regarding<br/><span class="highlight"></span>
     </p>
   </div>
-</div>
+</section>
 
-<div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+<section class="map container">
   <h2>Help fill the map!</h2>
   <div id="map"></div>
-</div>
+
+  <p class="psst">
+    Pssst! Do you know what type of primary your state has? <a href="http://voteforbernie.org" target="_blank" title="Learn how to vote for Bernie Sanders">Find out here.</a>
+  </p>
+</section>
 
 <script type="text/javascript">
 window.sites = <?php echo json_encode($sites); ?>;
