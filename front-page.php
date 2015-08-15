@@ -38,7 +38,7 @@ $slides = array(
       <div class="column hidden-xs"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/site-c.jpg" /></div>
     </div>
     <p class="lead">
-      Sites ForBernieSanders makes it easy for you to get your own grassroots website. <a href="http://reddit.com/r/SandersForPresident">GrassrootsForSanders</a> has created a network of sites ready-to-go for your Bernie Sanders group. Just like Bernie, we don't want your money. Only your support.
+      Sites ForBernieSanders makes it easy for you to get your own grassroots website. <a href="http://reddit.com/r/SandersForPresident" target="_blank" title="Reddit grassoots group SandersForPresident">GrassrootsForSanders</a> has created a network of sites ready-to-go for your Bernie Sanders group. Just like Bernie, we don't want your money. Only your support.
     </p>
 
   </div>

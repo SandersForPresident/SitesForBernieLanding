@@ -11,7 +11,11 @@ function create_site_request() {
   }
   $requestService = new RequestService();
   $requestService->createRequest($_POST['site_request']);
-  echo 'Valid!';
+  wp_mail(
+    get_field('email_notifications', 'options'),
+    'ForBernieSanders - New Request',
+    'You have a new request for the group ' . $_POST['site']['organization']
+  );
   exit(0);
 }
 add_action('wp_ajax_siteRequest', __NAMESPACE__ . '\\create_site_request');
@@ -25,11 +29,6 @@ function does_site_exist() {
   }
   $siteService = new SiteService();
   $site = $siteService->getSiteBySlug($_POST['site']);
-  wp_mail(
-    get_field('email_notifications', 'options'),
-    'ForBernieSanders - New Request',
-    'You have a new request for the group ' . $_POST['site']['organization']
-  );
   echo json_encode(array('exists' => !empty($site)));
   exit(0);
 }
