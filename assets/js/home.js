@@ -80,6 +80,20 @@
       }, 1000);
     });
 
+    /* Form */
+    $('#claim-form input[name=url]').keyup(function () {
+      console.log($(this).val());
+    })
+    $('#claim-form input[name=url]').keyup($.debounce(250, function () {
+      $.post('/wp-admin/admin-ajax.php', {
+        action: 'siteExists',
+        nonce: $('#claim-form input[name=nonce]').val(),
+        site: $(this).val()
+      }, function (result) {
+        console.log('RESULT', result);
+      });
+    }));
+
     $('#claim-form').submit(function () {
       var fields = {
         organization: $('#claim-form input[name=organization]').val(),
@@ -102,13 +116,5 @@
       });
       return false;
     });
-
-    window.test = function (site) {
-      $.post('/wp-admin/admin-ajax.php', {
-        action: 'siteExists',
-        nonce: $('#claim-form input[name=nonce]').val(),
-        site: site
-      });
-    };
   });
 })(jQuery);
