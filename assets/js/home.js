@@ -74,7 +74,7 @@
     zoomCarousel($('#banner .slides .slide'));
     buildMap();
 
-    $('#banner .btn').click(function () {
+    $('#banner .btn, #get-site').click(function () {
       $('html,body').animate({
         scrollTop: $('#claim').offset().top
       }, 1000);

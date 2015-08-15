@@ -124,7 +124,7 @@ $slides = array(
   <div class="section-heading">
     <h2>Help fill the map!</h2>
     <p>
-      We want all these states to become covered! If you're an existing group leader, claim yours!
+      We want all these states to become covered. If you're an existing group leader, claim yours!
     </p>
   </div>
   <div id="map"></div>
