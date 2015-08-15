@@ -135,15 +135,20 @@ section.map {
   }
 
   #claim-form {
-    .url {
-      display: inline-block;
-      vertical-align: top;
-      margin-top: 4px;
-      font-size: 20px;
-      font-weight: 300;
-    }
     .form-group {
       margin-bottom: 20px;
+
+      &.url {
+        .help-block {
+          display:none;
+        }
+        &.has-success {
+          .help-block.free {display: block;}
+        }
+        &.has-error {
+          .help-block.taken {display: block;}
+        }
+      }
     }
 
     .form-half-row {

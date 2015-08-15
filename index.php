@@ -78,13 +78,15 @@ $slides = array(
 
       <div class="form-half-row">
         <div class="column">
-          <div class="form-group">
+          <div class="form-group url">
             <label>URL</label><br/>
             <div class="input-group">
               <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
               <input type="text" name="url" class="form-control" style="text-align: right;" placeholder="www" required />
               <span class="input-group-addon">.forberniesanders.com</span>
             </div>
+            <span class="help-block taken">The site <span></span>.forberniesanders.com is already taken.</span>
+            <span class="help-block free">The site <span></span>.forberniesanders.com is available!</span>
           </div>
         </div>
         <div class="column">
