@@ -84,7 +84,7 @@
       var fields = {
         organization: $('#claim-form input[name=organization]').val(),
         cause: $('#claim-form input[name=cause]').val(),
-        role: $('#claim-form input[name=role]')
+        role: $('#claim-form select[name=role]').val(),
         url: $('#claim-form input[name=url]').val(),
         contact_name: $('#claim-form input[name=contact_name]').val(),
         contact_email: $('#claim-form input[name=contact_email]').val(),
