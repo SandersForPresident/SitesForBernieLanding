@@ -84,10 +84,12 @@
       var fields = {
         organization: $('#claim-form input[name=organization]').val(),
         cause: $('#claim-form input[name=cause]').val(),
+        role: $('#claim-form input[name=role]')
         url: $('#claim-form input[name=url]').val(),
         contact_name: $('#claim-form input[name=contact_name]').val(),
         contact_email: $('#claim-form input[name=contact_email]').val(),
         message: $('#claim-form textarea[name=message]').val(),
+        terms_agreed: $('#claim-form input[name=terms]').val()
       }
       $.post('/wp-admin/admin-ajax.php', {
         action: 'siteRequest',

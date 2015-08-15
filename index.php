@@ -91,7 +91,7 @@ $slides = array(
           <div class="form-group">
             <label>What's your role in the group?</label>
             <br/>
-            <select class="form-control" required>
+            <select class="form-control" name="role" required>
               <option value="" disabled selected>-- Select a Role --</option>
               <option>Leader</option>
               <option>Member</option>
@@ -108,7 +108,7 @@ $slides = array(
       <div class="form-group">
         <div class="checkbox-inline">
           <label style="font-weight:400;">
-            <input type="checkbox" required /> I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>.
+            <input type="checkbox" name="terms" required /> I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>.
           </label>
         </div>
       </div>
