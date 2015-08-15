@@ -102,5 +102,13 @@
       });
       return false;
     });
+
+    window.test = function (site) {
+      $.post('/wp-admin/admin-ajax.php', {
+        action: 'siteExists',
+        nonce: $('#claim-form input[name=nonce]').val(),
+        site: site
+      });
+    };
   });
 })(jQuery);
