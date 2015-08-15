@@ -40,8 +40,10 @@ $slides = array(
 
 <section id="claim">
   <div class="container">
-    <h2>Claim your site</h2>
-    <p>This is a call for all organization leaders to get your group online!</p>
+    <div class="section-heading">
+      <h2>Claim your site</h2>
+      <p>This is a call for all organization leaders to get your group online!</p>
+    </div>
 
     <form id="claim-form">
       <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('site_request'); ?>" />
@@ -53,18 +55,45 @@ $slides = array(
         <label>Cause</label>
         <input type="text" name="cause" class="form-control" placeholder="What is your focus?" required />
       </div>
-      <div class="form-group">
-        <label>URL</label><br/>
-        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />
-        <span class="url">.forberniesanders.com</span>
+      <div class="form-half-row">
+        <div class="column">
+          <div class="form-group">
+            <label>Contact Name</label>
+            <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" required />
+          </div>
+        </div>
+        <div class="column">
+          <div class="form-group">
+            <label>Contact Email</label>
+            <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you" required />
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Contact Name</label>
-        <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" required />
-      </div>
-      <div class="form-group">
-        <label>Contact Email</label>
-        <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you" required />
+
+      <div class="form-half-row">
+        <div class="column">
+          <div class="form-group">
+            <label>URL</label><br/>
+            <div class="input-group">
+              <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+              <input type="text" name="url" class="form-control" style="text-align: right;" placeholder="www" required />
+              <span class="input-group-addon">.forberniesanders.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="form-group">
+            <label>What's your role in the group?</label>
+            <br/>
+            <select class="form-control" required>
+              <option value="">-- Select a Role --</option>
+              <option>Leader</option>
+              <option>Member</option>
+              <option>Interested Party</option>
+              <option>No Affiliation</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label>Anything else?</label>
@@ -75,8 +104,6 @@ $slides = array(
           <input type="checkbox" required /> I agree to these <a href="/terms">Terms and Conditions</a>.
         </label>
       </div>
-      <br/>
-
       <button class="btn btn-primary btn-lg">Request Site</button>
     </form>
     <p id="claim-form-success" class="lead">
@@ -86,10 +113,12 @@ $slides = array(
 </section>
 
 <section class="map container">
-  <h2>Help fill the map!</h2>
-  <p>
-    We want all these states to become covered! If you're an existing group leader, claim yours!
-  </p>
+  <div class="section-heading">
+    <h2>Help fill the map!</h2>
+    <p>
+      We want all these states to become covered! If you're an existing group leader, claim yours!
+    </p>
+  </div>
   <div id="map"></div>
 
   <p class="psst">
