@@ -41,6 +41,7 @@ $slides = array(
 <section id="claim">
   <div class="container">
     <h2>Claim your site</h2>
+    <p>This is a call for all organization leaders to get your group online!</p>
 
     <form id="claim-form">
       <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('site_request'); ?>" />
@@ -69,6 +70,12 @@ $slides = array(
         <label>Anything else?</label>
         <textarea name="message" class="form-control" ></textarea>
       </div>
+      <div class="form-group">
+        <label style="font-weight:400;">
+          <input type="checkbox" required /> I agree to these <a href="/terms">Terms and Conditions</a>.
+        </label>
+      </div>
+      <br/>
 
       <button class="btn btn-primary btn-lg">Request Site</button>
     </form>
@@ -80,6 +87,9 @@ $slides = array(
 
 <section class="map container">
   <h2>Help fill the map!</h2>
+  <p>
+    We want all these states to become covered! If you're an existing group leader, claim yours!
+  </p>
   <div id="map"></div>
 
   <p class="psst">
