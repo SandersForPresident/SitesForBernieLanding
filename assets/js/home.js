@@ -84,17 +84,32 @@
     $('#claim-form input[name=url]').keyup(function () {
       console.log($(this).val());
     })
-    $('#claim-form input[name=url]').keyup($.debounce(250, function () {
+    $('#claim-form input[name=url]').keyup($.debounce(500, function () {
+      var $group = $('#claim-form .form-group.url'),
+          site = $(this).val().trim();
+      if (site.length === 0) {
+        $group.removeClass('has-error').removeClass('has-success');
+        return;
+      }
       $.post('/wp-admin/admin-ajax.php', {
         action: 'siteExists',
         nonce: $('#claim-form input[name=nonce]').val(),
         site: $(this).val()
       }, function (result) {
-        console.log('RESULT', result);
+        result = JSON.parse(result);
+        $group.find('.help-block span').text(site)
+        if (result.exists) {
+          $group.addClass('has-error').removeClass('has-success');
+        } else {
+          $group.removeClass('has-error').addClass('has-success');
+        }
       });
     }));
 
     $('#claim-form').submit(function () {
+      if ($('#claim-form .form-group.has-error').length > 0) {
+        return;
+      }
       var fields = {
         organization: $('#claim-form input[name=organization]').val(),
         cause: $('#claim-form input[name=cause]').val(),
