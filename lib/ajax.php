@@ -25,6 +25,11 @@ function does_site_exist() {
   }
   $siteService = new SiteService();
   $site = $siteService->getSiteBySlug($_POST['site']);
+  wp_mail(
+    get_field('email_notifications', 'options'),
+    'ForBernieSanders - New Request',
+    'You have a new request for the group ' . $_POST['site']['organization']
+  );
   echo json_encode(array('exists' => !empty($site)));
   exit(0);
 }
