@@ -79,57 +79,5 @@
         scrollTop: $('#claim').offset().top
       }, 1000);
     });
-
-    /* Form */
-    $('#claim-form input[name=url]').keyup(function () {
-      console.log($(this).val());
-    })
-    $('#claim-form input[name=url]').keyup($.debounce(500, function () {
-      var $group = $('#claim-form .form-group.url'),
-          site = $(this).val().trim();
-      if (site.length === 0) {
-        $group.removeClass('has-error').removeClass('has-success');
-        return;
-      }
-      $.post('/wp-admin/admin-ajax.php', {
-        action: 'siteExists',
-        nonce: $('#claim-form input[name=nonce]').val(),
-        site: $(this).val()
-      }, function (result) {
-        result = JSON.parse(result);
-        $group.find('.help-block span').text(site)
-        if (result.exists) {
-          $group.addClass('has-error').removeClass('has-success');
-        } else {
-          $group.removeClass('has-error').addClass('has-success');
-        }
-      });
-    }));
-
-    $('#claim-form').submit(function () {
-      if ($('#claim-form .form-group.has-error').length > 0) {
-        return;
-      }
-      var fields = {
-        organization: $('#claim-form input[name=organization]').val(),
-        cause: $('#claim-form input[name=cause]').val(),
-        role: $('#claim-form select[name=role]').val(),
-        url: $('#claim-form input[name=url]').val(),
-        contact_name: $('#claim-form input[name=contact_name]').val(),
-        contact_email: $('#claim-form input[name=contact_email]').val(),
-        message: $('#claim-form textarea[name=message]').val(),
-        terms_agreed: $('#claim-form input[name=terms]').val()
-      }
-      $.post('/wp-admin/admin-ajax.php', {
-        action: 'siteRequest',
-        nonce: $('#claim-form input[name=nonce]').val(),
-        site_request: fields
-      }, function () {
-        $('#claim-form').slideUp();
-        $('#claim-form-success .highlight').text(fields.url + '.forberniesanders.com');
-        $('#claim-form-success').show();
-      });
-      return false;
-    });
   });
 })(jQuery);
