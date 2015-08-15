@@ -8,6 +8,10 @@
   -o-transform: @transform;
   transform: @transform;
 }
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+  outline: none;
+}
 
 .bs-docs-masthead {
   position: relative;
@@ -28,6 +32,7 @@
     z-index: 20;
     top: 50%;
     left: 50%;
+    width: 100%;
     .transform(translate(-50%, -50%));
 
     h1, h2 {
@@ -91,8 +96,32 @@ section.map {
   }
 }
 
-section {
-  padding: 60px 0;
+.home {
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    .section-heading {
+      margin-bottom: 40px;
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+  .examples {
+    .make-row();
+    margin-top: 40px;
+    margin-bottom: 40px;
+    @media @mobile {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .column {
+      .make-sm-column(4);
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 #claim {
@@ -112,6 +141,16 @@ section {
       margin-top: 4px;
       font-size: 20px;
       font-weight: 300;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-half-row {
+      .make-row();
+      .column {
+        .make-md-column(6);
+      }
     }
   }
 }

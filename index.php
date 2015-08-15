@@ -23,7 +23,7 @@ $slides = array(
       <?php endforeach; ?>
     </div>
     <div class="content">
-      <h1>Sites for Bernie Sanders</h1>
+      <h1>Create a Site for Bernie Sanders</h1>
       <h2 id="typed-headline"><span>states</span>.forberniesanders.com</h2>
       <a href="#" class="btn btn-primary btn-lg">Claim Yours Today</a>
     </div>
@@ -32,15 +32,24 @@ $slides = array(
 <div class="bs-docs-featurette">
   <div class="container">
     <h2 class="bs-docs-featurette-title">Made for everyone, everywhere.</h2>
+    <div class="examples">
+      <div class="column"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/site-a.jpg" /></div>
+      <div class="column hidden-xs"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/site-b.jpg" /></div>
+      <div class="column hidden-xs"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tmp/site-c.jpg" /></div>
+    </div>
     <p class="lead">
       Sites ForBernieSanders makes it easy for you to get your own grassroots website. <a href="http://reddit.com/r/SandersForPresident">GrassrootsForSanders</a> has created a network of sites ready-to-go for your Bernie Sanders group. Just like Bernie, we don't want your money. Only your support.
     </p>
+
   </div>
 </div>
 
 <section id="claim">
   <div class="container">
-    <h2>Claim your site</h2>
+    <div class="section-heading">
+      <h2>Claim your site</h2>
+      <p>Sign up to grab your ready-to-go For Bernie site!</p>
+    </div>
 
     <form id="claim-form">
       <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('site_request'); ?>" />
@@ -52,24 +61,57 @@ $slides = array(
         <label>Cause</label>
         <input type="text" name="cause" class="form-control" placeholder="What is your focus?" required />
       </div>
-      <div class="form-group">
-        <label>URL</label><br/>
-        <input type="text" name="url" class="form-control" placeholder="your-subdomain" required style="width: 150px; text-align: right; display: inline-block;" />
-        <span class="url">.forberniesanders.com</span>
-      </div>
-      <div class="form-group">
-        <label>Contact Name</label>
-        <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" required />
-      </div>
-      <div class="form-group">
-        <label>Contact Email</label>
-        <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you" required />
-      </div>
-      <div class="form-group">
-        <label>Anything else?</label>
-        <textarea name="message" class="form-control" ></textarea>
+      <div class="form-half-row">
+        <div class="column">
+          <div class="form-group">
+            <label>Contact Name</label>
+            <input type="text" name="contact_name" class="form-control" placeholder="What is your name?" required />
+          </div>
+        </div>
+        <div class="column">
+          <div class="form-group">
+            <label>Contact Email</label>
+            <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you." required />
+          </div>
+        </div>
       </div>
 
+      <div class="form-half-row">
+        <div class="column">
+          <div class="form-group">
+            <label>URL</label><br/>
+            <div class="input-group">
+              <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+              <input type="text" name="url" class="form-control" style="text-align: right;" placeholder="www" required />
+              <span class="input-group-addon">.forberniesanders.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="form-group">
+            <label>What's your role in the group?</label>
+            <br/>
+            <select class="form-control" name="role" required>
+              <option value="" disabled selected>-- Select a Role --</option>
+              <option>Leader</option>
+              <option>Member</option>
+              <option>Interested Party</option>
+              <option>No Affiliation</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Summary</label>
+        <textarea name="message" class="form-control" placeholder="Tell us a little bit about you and your group" required></textarea>
+      </div>
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <label style="font-weight:400;">
+            <input type="checkbox" name="terms" required /> I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>.
+          </label>
+        </div>
+      </div>
       <button class="btn btn-primary btn-lg">Request Site</button>
     </form>
     <p id="claim-form-success" class="lead">
@@ -79,7 +121,12 @@ $slides = array(
 </section>
 
 <section class="map container">
-  <h2>Help fill the map!</h2>
+  <div class="section-heading">
+    <h2>Help fill the map!</h2>
+    <p>
+      We want all these states to become covered. If you're an existing group leader, claim yours!
+    </p>
+  </div>
   <div id="map"></div>
 
   <p class="psst">

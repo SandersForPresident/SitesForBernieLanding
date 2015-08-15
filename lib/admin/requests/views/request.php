@@ -38,8 +38,16 @@ $service->markAsRead($request['id']);
                   <span><?php echo $request['contact_email']; ?></span>
                 </div>
                 <div class="misc-pub-section">
+                  <label style="font-weight:bold;">Role</label>
+                  <span><?php echo $request['role']; ?></span>
+                </div>
+                <div class="misc-pub-section">
                   <label style="font-weight:bold;">Date:</label>
                   <span><?php echo $request['date']; ?></span>
+                </div>
+                <div class="misc-pub-section">
+                  <label style="font-size:bold;">Terms Agreed:</label>
+                  <span><?php echo $request['terms_agreed'] ? 'Yes' : 'No'; ?></span>
                 </div>
               </div>
 
