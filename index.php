@@ -65,7 +65,7 @@ $slides = array(
         <div class="column">
           <div class="form-group">
             <label>Contact Email</label>
-            <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you" required />
+            <input type="email" name="contact_email" class="form-control" placeholder="How we will contact you." required />
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ $slides = array(
             <label>What's your role in the group?</label>
             <br/>
             <select class="form-control" required>
-              <option value="">-- Select a Role --</option>
+              <option value="" disabled selected>-- Select a Role --</option>
               <option>Leader</option>
               <option>Member</option>
               <option>Interested Party</option>
@@ -100,9 +100,11 @@ $slides = array(
         <textarea name="message" class="form-control" ></textarea>
       </div>
       <div class="form-group">
-        <label style="font-weight:400;">
-          <input type="checkbox" required /> I agree to these <a href="/terms">Terms and Conditions</a>.
-        </label>
+        <div class="checkbox-inline">
+          <label style="font-weight:400;">
+            <input type="checkbox" required /> I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>.
+          </label>
+        </div>
       </div>
       <button class="btn btn-primary btn-lg">Request Site</button>
     </form>
