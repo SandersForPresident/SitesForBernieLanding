@@ -23,7 +23,7 @@ $slides = array(
       <?php endforeach; ?>
     </div>
     <div class="content">
-      <h1>Sites for Bernie Sanders</h1>
+      <h1>Create a Site for Bernie Sanders</h1>
       <h2 id="typed-headline"><span>states</span>.forberniesanders.com</h2>
       <a href="#" class="btn btn-primary btn-lg">Claim Yours Today</a>
     </div>
