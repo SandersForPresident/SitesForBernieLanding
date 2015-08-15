@@ -48,7 +48,7 @@ $slides = array(
   <div class="container">
     <div class="section-heading">
       <h2>Claim your site</h2>
-      <p>This is a call for all organization leaders to get your group online!</p>
+      <p>Sign up to grab your ready-to-go For Bernie site!</p>
     </div>
 
     <form id="claim-form">
@@ -102,8 +102,8 @@ $slides = array(
         </div>
       </div>
       <div class="form-group">
-        <label>Anything else?</label>
-        <textarea name="message" class="form-control" ></textarea>
+        <label>Summary</label>
+        <textarea name="message" class="form-control" placeholder="Tell us a little bit about you and your group" required></textarea>
       </div>
       <div class="form-group">
         <div class="checkbox-inline">
