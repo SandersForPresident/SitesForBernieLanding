@@ -7,7 +7,7 @@
       </div>
     </div>
   </a>
-    <p class="affiliation">This site is supported by volunteers and not endorsed or affiliated with the <a href="https://berniesanders.com" title="Official Bernie Sanders campaign site">official Bernie Sanders campaign</a>.</p>
+    <p class="affiliation">This site is supported by volunteers and not endorsed by nor affiliated with the <a href="https://berniesanders.com" title="Official Bernie Sanders campaign site">official Bernie Sanders campaign</a>.</p>
 
   </div>
 
