@@ -24,6 +24,7 @@
         <nav id="bs-navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" id="get-site">Get Your Site</a></li>
+            <li><a href="http://feelthebern.org/" target="_blank" title="Learn where Bernie stands on issues">Where Bernie Stands</a></li>
             <li><a href="http://voteforbernie.org" target="_blank" title="How to vote for Bernie Sanders"> Register to Vote</a></li>
           </ul>
         </nav>
