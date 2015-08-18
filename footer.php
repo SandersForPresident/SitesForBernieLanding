@@ -3,7 +3,7 @@
 
     <div class="donated-by">
       <div>
-        Donated by <a href="http://www.reddit.com/r/SandersForPresident">Friends of Bernie</a>
+        Donated by <a href="http://www.reddit.com/r/SandersForPresident">Grasroots for Sanders</a>
       </div>
     </div>
   </a>
