@@ -16,6 +16,7 @@ $service->markAsRead($request['id']);
         <div class="postbox">
           <h3 class="hndle">Organization: <?php echo $request['organization']; ?></h3>
           <h3 class="hndle">URL: <?php echo $request['url']; ?>.forberniesanders.com</h3>
+          <h3 class="hndle">Status: <?php echo $request['status']; ?></h3>
           <div class="inside">
             <?php echo apply_filters('the_content', $request['message']); ?>
           </div>
@@ -46,17 +47,17 @@ $service->markAsRead($request['id']);
                   <span><?php echo $request['date']; ?></span>
                 </div>
                 <div class="misc-pub-section">
-                  <label style="font-size:bold;">Terms Agreed:</label>
+                  <label style="font-weight:bold;">Terms Agreed:</label>
                   <span><?php echo $request['terms_agreed'] ? 'Yes' : 'No'; ?></span>
                 </div>
               </div>
 
               <div id="major-publishing-actions">
                 <div id="delete-action">
-                  <a href="#" class="submitdelete deletion">Trash</a>
+                  <a href="?page=<?php echo $_REQUEST['page']; ?>&action=reject&post=<?php echo $_REQUEST['post']; ?>" class="submitdelete deletion">Reject</a>
                 </div>
                 <div id="publishing-action">
-                  <input type="button" value="Okay" id="publish" class="button button-primary button-large" />
+                  <input type="button" value="Approve" id="approve" class="button button-primary button-large" />
                 </div>
                 <div class="clear"></div>
               </div>
@@ -66,3 +67,13 @@ $service->markAsRead($request['id']);
       </div>
     </div>
   </div>
+
+<script type="text/javascript">
+(function ($){
+  $(document).ready(function () {
+    $('#approve').click(function () {
+      window.location = "?page=<?php echo $_REQUEST['page']; ?>&action=approve&post=<?php echo $_REQUEST['post']; ?>";
+    });
+  });
+})(jQuery);
+</script>

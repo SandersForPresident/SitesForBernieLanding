@@ -7,6 +7,8 @@ class RequestService {
   const POST_TYPE = 'request';
   const POST_TITLE_KEY = 'organization';
   const POST_CONTENT_KEY = 'message';
+  const POST_STATUS_APPROVED = 'approved';
+  const POST_STATUS_REJECTED = 'rejected';
   const META_KEY_CAUSE = 'cause';
   const META_KEY_URL = 'url';
   const META_KEY_EMAIL = 'contact_email';
@@ -16,9 +18,20 @@ class RequestService {
   const META_KEY_TERMS_AGREED = 'terms_agreed';
 
   public function getRequests() {
+    $query = $this->getQueryRequests();
+    return $query['posts'];
+  }
+
+  public function getQueryRequests($paged=1, $post_status=null) {
+    if (empty($post_status)) {
+      $post_status = array('publish', 'draft');
+    }
     $requests = array();
     $args = array(
-      'post_type' => self::POST_TYPE
+      'post_type' => self::POST_TYPE,
+      'paged' => $paged,
+      'posts_per_page' => 10,
+      'post_status' => $post_status
     );
     $query = new WP_Query($args);
 
@@ -39,15 +52,20 @@ class RequestService {
 
       $requests[] = $request;
     }
-    return $requests;
+
+    return array (
+      'count' => $query->found_posts,
+      'posts' => $requests
+    );
   }
 
   public function getRequest($id) {
     $post = get_post($id);
-    if ($post instanceof WP_Post) {
+    if ($post instanceof WP_Post && $post->post_type == self::POST_TYPE) {
       $request = array ();
       $request['id'] = $post->ID;
       $request['date'] = get_the_time('F d, Y h:ia', $post->ID);
+      $request['status'] = $post->post_status;
       $request[self::POST_TITLE_KEY] = $post->post_title;
       $request[self::POST_CONTENT_KEY] = $post->post_content;
       $request[self::META_KEY_CAUSE] = get_post_meta($post->ID, self::META_KEY_CAUSE, true);
@@ -85,5 +103,19 @@ class RequestService {
 
   public function markAsRead($id) {
     update_post_meta($id, self::META_KEY_READ, true);
+  }
+
+  public function approve($id) {
+    return wp_update_post(array(
+      'ID' => $id,
+      'post_status' => self::POST_STATUS_APPROVED
+    ));
+  }
+
+  public function reject($id) {
+    return wp_update_post(array(
+      'ID' => $id,
+      'post_status' => self::POST_STATUS_REJECTED
+    ));
   }
 }
