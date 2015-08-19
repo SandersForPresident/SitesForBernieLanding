@@ -29,12 +29,34 @@ class RequestTable extends WP_List_Table {
   }
 
   public function get_views() {
-    return array(
-      'all' => "<a href=\"?page={$_REQUEST['page']}\">All</a>",
-      'approved' => "<a href=\"?page={$_REQUEST['page']}&post_status=approved\">Approved</a>",
-      'rejected' => "<a href=\"?page={$_REQUEST['page']}&post_status=rejected\">Rejected</a>",
-      'trash' => "<a href=\"?page={$_REQUEST['page']}&post_status=trash\">Trash</a>",
-    );
+    $views = array();
+    $current = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 'pending';
+
+    $class = $current == 'pending' ? 'class="current"' : '';
+    $url = "?page={$_REQUEST['page']}";
+    $count = wp_count_posts('request')->draft;
+    $count = $count > 0 ? "<span class='count'>({$count})</span>" : "";
+    $views['pending'] = "<a href='{$url}' {$class}>Pending {$count}</a>";
+
+    $class = $current == 'approved' ? 'class="current"' : '';
+    $url = "?page={$_REQUEST['page']}&post_status=approved";
+    $count = wp_count_posts('request')->approved;
+    $count = $count > 0 ? "<span class='count'>({$count})</span>" : "";
+    $views['approved'] = "<a href='{$url}' {$class}>Approved {$count}</a>";
+
+    $class = $current == 'rejected' ? 'class="current"' : '';
+    $url = "?page={$_REQUEST['page']}&post_status=rejected";
+    $count = wp_count_posts('request')->rejected;
+    $count = $count > 0 ? "<span class='count'>({$count})</span>" : "";
+    $views['rejected'] = "<a href='{$url}' {$class}>Rejected {$count}</a>";
+
+    $class = $current == 'trash' ? 'class="current"' : '';
+    $url = "?page={$_REQUEST['page']}&post_status=trash";
+    $count = wp_count_posts('request')->trash;
+    $count = $count > 0 ? "<span class='count'>({$count})</span>" : "";
+    $views['trash'] = "<a href='{$url}' {$class}>Trash</a> {$count}";
+
+    return $views;
   }
 
   public function column_cb($item) {
