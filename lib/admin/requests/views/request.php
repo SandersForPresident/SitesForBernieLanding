@@ -16,7 +16,7 @@ $service->markAsRead($request['id']);
         <div class="postbox">
           <h3 class="hndle">Organization: <?php echo $request['organization']; ?></h3>
           <h3 class="hndle">URL: <?php echo $request['url']; ?>.forberniesanders.com</h3>
-          <h3 class="hndle">Status: PENDING</h3>
+          <h3 class="hndle">Status: <?php echo $request['status']; ?></h3>
           <div class="inside">
             <?php echo apply_filters('the_content', $request['message']); ?>
           </div>
