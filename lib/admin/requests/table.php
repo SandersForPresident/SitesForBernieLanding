@@ -30,8 +30,10 @@ class RequestTable extends WP_List_Table {
 
   public function get_views() {
     return array(
-      'all' => '<a href="#">All</a>',
-      'trash' => '<a href="#">Trash</a>'
+      'all' => "<a href=\"?page={$_REQUEST['page']}\">All</a>",
+      'approved' => "<a href=\"?page={$_REQUEST['page']}&post_status=approved\">Approved</a>",
+      'rejected' => "<a href=\"?page={$_REQUEST['page']}&post_status=rejected\">Rejected</a>",
+      'trash' => "<a href=\"?page={$_REQUEST['page']}&post_status=trash\">Trash</a>",
     );
   }
 
