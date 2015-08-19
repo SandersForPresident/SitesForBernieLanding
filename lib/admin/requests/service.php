@@ -20,12 +20,13 @@ class RequestService {
     return $query['posts'];
   }
 
-  public function getQueryRequests($paged=1) {
+  public function getQueryRequests($paged=1, $post_status='publish') {
     $requests = array();
     $args = array(
       'post_type' => self::POST_TYPE,
       'paged' => $paged,
-      'posts_per_page' => 10
+      'posts_per_page' => 10,
+      'post_status' => $post_status
     );
     $query = new WP_Query($args);
 

@@ -80,7 +80,7 @@ class RequestTable extends WP_List_Table {
   }
 
   public function prepare_items() {
-    $query = $this->service->getQueryRequests($_REQUEST['paged']);
+    $query = $this->service->getQueryRequests($_REQUEST['paged'], $_REQUEST['post_status']);
     $this->items = $query['posts'];
     $this->_column_headers = array($this->get_columns(), array(), array());
     $this->set_pagination_args(array(
