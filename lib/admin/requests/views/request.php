@@ -46,7 +46,7 @@ $service->markAsRead($request['id']);
                   <span><?php echo $request['date']; ?></span>
                 </div>
                 <div class="misc-pub-section">
-                  <label style="font-size:bold;">Terms Agreed:</label>
+                  <label style="font-weight:bold;">Terms Agreed:</label>
                   <span><?php echo $request['terms_agreed'] ? 'Yes' : 'No'; ?></span>
                 </div>
               </div>
