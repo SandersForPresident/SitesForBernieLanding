@@ -16,9 +16,16 @@ class RequestService {
   const META_KEY_TERMS_AGREED = 'terms_agreed';
 
   public function getRequests() {
+    $query = $this->getQueryRequests();
+    return $query['posts'];
+  }
+
+  public function getQueryRequests($paged=1) {
     $requests = array();
     $args = array(
-      'post_type' => self::POST_TYPE
+      'post_type' => self::POST_TYPE,
+      'paged' => $paged,
+      'posts_per_page' => 10
     );
     $query = new WP_Query($args);
 
@@ -39,7 +46,11 @@ class RequestService {
 
       $requests[] = $request;
     }
-    return $requests;
+
+    return array (
+      'count' => $query->found_posts,
+      'posts' => $requests
+    );
   }
 
   public function getRequest($id) {
