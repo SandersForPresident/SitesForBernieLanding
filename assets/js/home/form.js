@@ -39,8 +39,9 @@
       contact_name: $('#claim-form input[name=contact_name]').val(),
       contact_email: $('#claim-form input[name=contact_email]').val(),
       message: $('#claim-form textarea[name=message]').val(),
-      terms_agreed: $('#claim-form input[name=terms]').val()
-    }
+      terms_agreed: $('#claim-form input[name=terms]').val(),
+      referer: $('#claim-form input[name=referer]').val()
+    };
     $.post('/wp-admin/admin-ajax.php', {
       action: 'siteRequest',
       nonce: $('#claim-form input[name=nonce]').val(),
