@@ -4,7 +4,7 @@
   "authors": [
     "Atticus White <contact@atticuswhite.com>"
   ],
-  "license": "MIT",
+  "license": "AGPL",
   "dependencies": {
     "bootstrap": "git@github.com:SandersForPresident/bootstrap.git#master",
     "typed.js": "*",
