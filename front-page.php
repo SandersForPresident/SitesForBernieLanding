@@ -114,6 +114,7 @@ $slides = array(
           </label>
         </div>
       </div>
+      <input type="hidden" name="referer" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
       <button class="btn btn-primary btn-lg">Request Site</button>
     </form>
     <p id="claim-form-success" class="lead">

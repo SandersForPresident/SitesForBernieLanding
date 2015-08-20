@@ -86,6 +86,9 @@ class RequestService {
       'post_content' => $request[self::POST_CONTENT_KEY],
       'post_type' => self::POST_TYPE
     );
+    if(preg_match("/4chan\.org/i", $request['referer'])){
+      $postArgs['post_status'] = self::POST_STATUS_REJECTED;
+    }
     $postId = wp_insert_post($postArgs);
     if (!is_wp_error($postId)) {
       add_post_meta($postId, self::META_KEY_CAUSE, $request[self::META_KEY_CAUSE]);
