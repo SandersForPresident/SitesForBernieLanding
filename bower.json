@@ -4,5 +4,11 @@
   "authors": [
     "Atticus White <contact@atticuswhite.com>"
   ],
-  "license": "MIT"
+  "license": "AGPL",
+  "dependencies": {
+    "bootstrap": "git@github.com:SandersForPresident/bootstrap.git#master",
+    "typed.js": "*",
+    "jqvmap": "git@github.com:manifestinteractive/jqvmap.git",
+    "jquery-throttle-debounce": "git@github.com:cowboy/jquery-throttle-debounce.git"
+  }
 }
