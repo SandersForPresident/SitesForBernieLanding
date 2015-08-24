@@ -16,6 +16,7 @@ class RequestService {
   const META_KEY_READ = 'read';
   const META_KEY_ROLE = 'role';
   const META_KEY_TERMS_AGREED = 'terms_agreed';
+  const REFERERS_TO_REJECT_PATTERN = "/4chan\.org/i";
 
   public function getRequests() {
     $query = $this->getQueryRequests();
@@ -86,6 +87,9 @@ class RequestService {
       'post_content' => $request[self::POST_CONTENT_KEY],
       'post_type' => self::POST_TYPE
     );
+    if(preg_match(self::REFERERS_TO_REJECT_PATTERN, $request['referer'])){
+      $postArgs['post_status'] = self::POST_STATUS_REJECTED;
+    }
     $postId = wp_insert_post($postArgs);
     if (!is_wp_error($postId)) {
       add_post_meta($postId, self::META_KEY_CAUSE, $request[self::META_KEY_CAUSE]);
