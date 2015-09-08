@@ -1,7 +1,9 @@
 <?php
+
 namespace SandersForPresidentLanding\Wordpress\Admin\Requests;
 use WP_Query;
 use WP_Post;
+use ns_cloner;
 
 class RequestService {
   const POST_TYPE = 'request';
@@ -110,10 +112,53 @@ class RequestService {
   }
 
   public function approve($id) {
-    return wp_update_post(array(
-      'ID' => $id,
-      'post_status' => self::POST_STATUS_APPROVED
-    ));
+
+    // the request as submitted by the user
+    $post = get_post($id);
+
+    // dynamic seed site FTW
+    $clone_site = array_filter(wp_get_sites(), function($site){
+                      return preg_match('/^seed\./', $site['domain']);
+                    })[0];
+
+    // setup the cloner
+    $ns_cloner = new ns_cloner();
+    $ns_cloner->set_up_request(array(
+                    'action' => 'process',
+                    'clone_mode' => 'core',
+                    'source_id' => $clone_site->blog_id,  // might be site_id?
+                    'target_name' => get_post_meta($post->ID, self::META_KEY_URL, true),
+                    'target_title' => $post->post_title,
+                    'disable_addons' => 1
+                  ));
+
+    // not super clean but..
+    add_filter( 'ns_cloner_pipeline_steps', array($ns_cloner, 'register_create_site_step'), 100 );
+    add_filter( 'ns_cloner_pipeline_steps', array($ns_cloner, 'register_clone_tables_step'), 200 );   
+    add_filter( 'ns_cloner_pipeline_steps', array($ns_cloner, 'register_copy_files_step'), 300 );
+
+    // gogogo
+    $ns_cloner->process();
+
+    // update titles and things.
+    update_blog_option($ns_cloner->target_id, 'blogdescription', get_post_meta($post->ID, self::META_KEY_CAUSE, true));
+
+    // todo:
+    // create superuser based on who submitted the request
+    // Update `Options Event Page Title` and replace `__STATE__` with the desired text
+    // Update `Options Site State Abbreviation` with the state abbreviation (if applicable)
+    // Update `Is Default State Site`
+    // update templated __STATE NAME__ pages
+    // update Yoast
+    // profit
+
+    // mark this thing donezo. disabled for testing
+    // wp_update_post(array(
+    //   'ID' => $id,
+    //   'post_status' => self::POST_STATUS_APPROVED
+    // ));
+
+    return true;
   }
 
   public function reject($id) {
