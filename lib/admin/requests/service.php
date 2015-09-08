@@ -150,6 +150,7 @@ class RequestService {
     // Update `Is Default State Site`
     // update templated __STATE NAME__ pages
     // update Yoast
+    // set the SitesForBernie theme
     // profit
 
     // mark this thing donezo. disabled for testing
