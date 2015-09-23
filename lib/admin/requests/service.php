@@ -155,7 +155,7 @@ class RequestService {
       wp_mail( $email_address, 'Welcome!', 'Your Password: ' . $password );
     }
 
-    add_user_to_blog( $ns_cloner->target_id, $user_id, 'Administrator');
+    add_user_to_blog( $ns_cloner->target_id, $user_id, 'administrator');
 
     switch_to_blog($ns_cloner->target_id);
 
