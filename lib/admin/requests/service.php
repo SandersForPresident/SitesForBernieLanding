@@ -117,16 +117,16 @@ class RequestService {
     $post = get_post($id);
 
     // dynamic seed site FTW
-    $clone_site = array_filter(wp_get_sites(), function($site){
+    $clone_site = array_values(array_filter(wp_get_sites(), function($site){
                       return preg_match('/^seed\./', $site['domain']);
-                    })[0];
+                    }))[0];
 
     // setup the cloner
     $ns_cloner = new ns_cloner();
     $ns_cloner->set_up_request(array(
                     'action' => 'process',
                     'clone_mode' => 'core',
-                    'source_id' => $clone_site->blog_id,  // might be site_id?
+                    'source_id' => $clone_site['blog_id'],  // might be site_id?
                     'target_name' => get_post_meta($post->ID, self::META_KEY_URL, true),
                     'target_title' => $post->post_title,
                     'disable_addons' => 1
@@ -162,8 +162,8 @@ class RequestService {
     // do we need that extra character? not sure v
     if($page = get_page_by_title('STATE_NAME for Bernie Sanders 2016')){
       $page->post_title = $post->post_title;
-      $page->post_body = str_replace('STATE_NAME', $post->post_title, $post->post_body);
-      $page->save();
+      $page->post_content = str_replace('STATE_NAME', $post->post_title, $post->post_content);
+      wp_update_post($page);
     }
 
     // Update `Options Site State Abbreviation` with the state abbreviation (if applicable)
