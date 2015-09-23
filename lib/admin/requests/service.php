@@ -143,21 +143,40 @@ class RequestService {
     // update titles and things.
     update_blog_option($ns_cloner->target_id, 'blogdescription', get_post_meta($post->ID, self::META_KEY_CAUSE, true));
 
-    // todo:
-    // create superuser based on who submitted the request
-    // Update `Options Event Page Title` and replace `__STATE__` with the desired text
+    // create (or reference existing) superuser based on who submitted the request
+    $email_address = get_post_meta($post->ID, self::META_KEY_EMAIL, true);
+    if($user = get_user_by('email', $email_address)){
+      $user_id = $user->ID;
+    } else {
+      $password = wp_generate_password( 12, false );
+      $username = strtolower(str_replace(' ', '', get_post_meta($post->ID, self::META_KEY_NAME, true)));
+      $user_id = wp_create_user( $username, $password, $email_address );
+      // Email the user
+      wp_mail( $email_address, 'Welcome!', 'Your Password: ' . $password );
+    }
+
+    add_user_to_blog( $ns_cloner->target_id, $user_id, 'Administrator');
+
+    switch_to_blog($ns_cloner->target_id);
+
+    // do we need that extra character? not sure v
+    if($page = get_page_by_title('STATE_NAME for Bernie Sanders 2016')){
+      $page->post_title = $post->post_title;
+      $page->post_body = str_replace('STATE_NAME', $post->post_title, $post->post_body);
+      $page->save();
+    }
+
     // Update `Options Site State Abbreviation` with the state abbreviation (if applicable)
     // Update `Is Default State Site`
-    // update templated __STATE NAME__ pages
     // update Yoast
-    // set the SitesForBernie theme
-    // profit
 
-    // mark this thing donezo. disabled for testing
-    // wp_update_post(array(
-    //   'ID' => $id,
-    //   'post_status' => self::POST_STATUS_APPROVED
-    // ));
+    restore_current_blog();
+
+    // mark this thing donezo
+    wp_update_post(array(
+      'ID' => $id,
+      'post_status' => self::POST_STATUS_APPROVED
+    ));
 
     return true;
   }
